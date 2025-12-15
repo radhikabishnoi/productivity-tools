@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - ProductivityTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same Style as Main Website */
+:root {
+--primary: #4361ee;
+--secondary: #3a0ca3;
+--accent: #4cc9f0;
+--light: #f8f9fa;
+--dark: #212529;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+min-height: 100vh;
+}
+header {
+background: white;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem 0;
+}
+.logo {
+font-size: 1.8rem;
+font-weight: 800;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--dark);
+font-weight: 600;
+padding: 8px 16px;
+border-radius: 20px;
+transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+background: var(--primary);
+color: white;
+}
+.page-header {
+text-align: center;
+padding: 4rem 0 2rem;
+background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9));
+color: white;
+margin-bottom: 3rem;
+border-radius: 0 0 30px 30px;
+}
+.page-header h1 {
+font-size: 3rem;
+margin-bottom: 1rem;
+}
+.privacy-content {
+background: white;
+padding: 3rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+margin-bottom: 3rem;
+}
+.privacy-section {
+margin-bottom: 2.5rem;
+padding-bottom: 2rem;
+border-bottom: 1px solid #eee;
+}
+.privacy-section:last-child {
+border-bottom: none;
+}
+.privacy-section h2 {
+color: var(--secondary);
+margin-bottom: 1rem;
+font-size: 1.8rem;
+}
+.privacy-section h3 {
+color: var(--primary);
+margin: 1.5rem 0 0.8rem;
+font-size: 1.3rem;
+}
+.highlight-box {
+background: #f8f9ff;
+border-left: 4px solid var(--accent);
+padding: 1.5rem;
+margin: 1.5rem 0;
+border-radius: 8px;
+}
+footer {
+background: var(--dark);
+color: white;
+padding: 2rem 0;
+margin-top: 4rem;
+text-align: center;
+}
+@media (max-width: 768px) {
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+}
+.page-header h1 {
+font-size: 2.2rem;
+}
+.privacy-content {
+padding: 2rem;
+}
+}
+</style>
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+<div class="container">
+<nav class="navbar">
+<a href="index.html" class="logo">
+<i class="fas fa-tools"></i>
+ProductivityTools.in
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html" class="active">Privacy</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1>Privacy Policy</h1>
+<p>Your privacy is important to us. Here's how we handle your information.</p>
+</div>
+</section>
+
+<!-- Privacy Policy Content -->
+<div class="container">
+<div class="privacy-content">
+<div class="privacy-section">
+<h2>Introduction</h2>
+<p>At <strong>ProductivityTools.in</strong>, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you use our website and tools. Please read this policy carefully to understand our practices.</p>
+
+<div class="highlight-box">
+<p><strong>Important:</strong> Our tools are designed to work without requiring any personal information. We believe in privacy by design.</p>
+</div>
+</div>
+
+<div class="privacy-section">
+<h2>1. Information We Collect</h2>
+
+<h3>1.1 Personal Information</h3>
+<p><strong>We collect almost no personal data.</strong> Since our tools work without registration, we don't require your name, email, or any personal information to use them.</p>
+
+<h3>1.2 Usage Data</h3>
+<p>We may collect anonymous usage data through services like Google Analytics to understand how visitors use our website. This includes:</p>
+<ul style="padding-left: 1.5rem; margin: 1rem 0;">
+<li>Browser type and version</li>
+<li>Pages visited and time spent</li>
+<li>Referring website (if any)</li>
+<li>General location (country/city level)</li>
+</ul>
+<p>This data is aggregated and cannot be used to identify individual users.</p>
+
+<h3>1.3 Local Storage</h3>
+<p>Some tools might store data temporarily in your browser's local storage for functionality (like saving your to-do list or meeting notes). This data:</p>
+<ul style="padding-left: 1.5rem; margin: 1rem 0;">
+<li>Never leaves your device</li>
+<li>Can be cleared by you at any time</li>
+<li>Is not accessible to us</li>
+</ul>
+</div>
+
+<div class="privacy-section">
+<h2>2. Third-Party Services</h2>
+
+<h3>2.1 Website Hosting</h3>
+<p>Our website is hosted on <strong>Netlify</strong> and <strong>GitHub Pages</strong>. These services may collect standard web server logs (like IP address, browser type) for security and operational purposes.</p>
+
+<h3>2.2 Advertising</h3>
+<p>We use <strong>Google AdSense</strong> to display ads, which uses cookies to serve relevant ads. You can opt-out of personalized ads through Google's Ads Settings.</p>
+
+<h3>2.3 Analytics</h3>
+<p>We use <strong>Google Analytics</strong> to understand website traffic and usage patterns. This helps us improve our tools and user experience.</p>
+</div>
+
+<div class="privacy-section">
+<h2>3. Cookies</h2>
+<p>We use cookies in the following ways:</p>
+
+<h3>3.1 Essential Cookies</h3>
+<p>These are necessary for the website to function properly. They enable basic functions like page navigation and access to secure areas.</p>
+
+<h3>3.2 Analytics Cookies</h3>
+<p>These help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+
+<h3>3.3 Advertising Cookies</h3>
+<p>Set by our advertising partners to deliver relevant ads and track ad performance.</p>
+
+<p style="margin-top: 1rem;">You can control cookies through your browser settings. However, disabling essential cookies may affect website functionality.</p>
+</div>
+
+<div class="privacy-section">
+<h2>4. Your Rights</h2>
+<p>Since we don't collect your personal data, there's no data to access, modify, or delete. Any data created while using our tools (like filled templates) remains on your device and can be cleared by you.</p>
+
+<p>If you believe we have unintentionally collected your personal information, please contact us immediately at <strong>support@productivitytool.in</strong> and we will promptly address your concerns.</p>
+</div>
+
+<div class="privacy-section">
+<h2>5. Children's Privacy</h2>
+<p>Our website is not directed to children under 13. We do not knowingly collect personal information from children under 13. If you are a parent or guardian and believe your child has provided us with personal information, please contact us.</p>
+</div>
+
+<div class="privacy-section">
+<h2>6. Changes to This Policy</h2>
+<p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date below.</p>
+</div>
+
+<div class="privacy-section">
+<h2>7. Contact Us</h2>
+<p>If you have any questions about this Privacy Policy, please contact us:</p>
+<ul style="padding-left: 1.5rem; margin: 1rem 0;">
+<li><strong>Email:</strong> support@productivitytool.in</li>
+<li><strong>Through our website:</strong> <a href="contact.html">Contact Form</a></li>
+</ul>
+</div>
+
+<div style="background: #f8f9ff; padding: 1.5rem; border-radius: 10px; margin-top: 3rem; text-align: center;">
+<p><strong>Last Updated:</strong> March 2024</p>
+<p style="margin-top: 0.5rem; color: #666;">This policy applies to all tools and services on ProductivityTools.in</p>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>&copy; 2024 ProductivityTools.in | All tools are 100% free forever</p>
+<p style="margin-top: 1rem; opacity: 0.8;">
+<a href="index.html" style="color: #4cc9f0; text-decoration: none;">Home</a> |
+<a href="about.html" style="color: #4cc9f0; text-decoration: none;">About</a> |
+<a href="contact.html" style="color: #4cc9f0; text-decoration: none;">Contact</a> |
+<a href="privacy.html" style="color: #4cc9f0; text-decoration: none;">Privacy Policy</a>
+</p>
+</div>
+</footer>
+
+<script>
+// Active navigation link
+document.addEventListener('DOMContentLoaded', function() {
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav-links a');
+
+navLinks.forEach(link => {
+if (link.getAttribute('href') === currentPage) {
+link.classList.add('active');
+}
+});
+});
+</script>
+</body>
+</html>
