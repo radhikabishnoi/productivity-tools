@@ -1,0 +1,24 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://productivitytool.in/sitemap.xml
+
+# Crawl delay (requests per second)
+Crawl-delay: 2
+
+# Preferred host (www or non-www)
+Host: productivitytool.in
+
+# Allow Googlebot to index all pages
+User-agent: Googlebot
+Allow: /
+
+# Allow Bingbot
+User-agent: Bingbot
+Allow: /
+
+# Allow all major search engines
+User-agent: *
+Allow: /

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<!-- Home Page (Highest Priority) -->
+<url>
+<loc>https://productivitytool.in/</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>daily</changefreq>
+<priority>1.0</priority>
+</url>
+
+<!-- Hindi Version -->
+<url>
+<loc>https://productivitytool.in/hindi.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<!-- Tools Pages (High Priority) -->
+<url>
+<loc>https://productivitytool.in/meeting-tool.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://productivitytool.in/scheduler.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://productivitytool.in/email-tool.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<url>
+<loc>https://productivitytool.in/project-tool.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>weekly</changefreq>
+<priority>0.9</priority>
+</url>
+
+<!-- Support Pages (Medium Priority) -->
+<url>
+<loc>https://productivitytool.in/about.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://productivitytool.in/contact.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.7</priority>
+</url>
+
+<url>
+<loc>https://productivitytool.in/privacy.html</loc>
+<lastmod>2024-03-19</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.6</priority>
+</url>
+
+</urlset>
