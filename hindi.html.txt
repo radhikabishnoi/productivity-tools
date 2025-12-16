@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ProductivityTools.in - 100% मुफ्त प्रोडक्टिविटी टूल्स | कोई साइनअप नहीं</title>
+<meta name="description" content="पेशेवरों, छात्रों और टीमों के लिए पूरी तरह मुफ्त प्रोडक्टिविटी टूल्स। कोई रजिस्ट्रेशन नहीं, कोई सीमा नहीं। मीटिंग नोट्स, सोशल मीडिया शेड्यूलर, ईमेल टेम्पलेट्स, प्रोजेक्ट मैनेजमेंट।">
+<meta name="keywords" content="मुफ्त प्रोडक्टिविटी टूल्स, मीटिंग नोट्स, सोशल मीडिया शेड्यूलर, ईमेल टेम्पलेट्स, प्रोजेक्ट मैनेजमेंट, कोई साइनअप नहीं">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same CSS as English version, just content in Hindi */
+:root {
+--primary: #4361ee;
+--secondary: #3a0ca3;
+--accent: #4cc9f0;
+--light: #f8f9fa;
+--dark: #212529;
+--success: #4ade80;
+--warning: #f59e0b;
+}
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+}
+
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+}
+
+/* Same CSS structure as English version */
+/* ... [Copy all CSS from English version] ... */
+
+/* Only changed content will be in Hindi */
+</style>
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+<div class="container">
+<nav class="navbar">
+<a href="hindi.html" class="logo">
+<i class="fas fa-tools"></i>
+ProductivityTools.in
+</a>
+
+<div class="mobile-menu" id="mobileMenu">
+<i class="fas fa-bars"></i>
+</div>
+
+<ul class="nav-links" id="navLinks">
+<li><a href="hindi.html" class="active">होम</a></li>
+<li><a href="about.html">हमारे बारे में</a></li>
+<li><a href="#tools">टूल्स</a></li>
+<li><a href="contact.html">संपर्क करें</a></li>
+<li><a href="privacy.html">गोपनीयता</a></li>
+<div class="language-switcher">
+<a href="index.html" class="lang-btn en">EN</a>
+<a href="hindi.html" class="lang-btn hi">हिंदी</a>
+</div>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Hero Section -->
+<section class="hero">
+<div class="container">
+<h1>100% मुफ्त टूल्स से बढ़ाएं अपनी प्रोडक्टिविटी</h1>
+<p>पेशेवर प्रोडक्टिविटी सुइट बिना साइनअप, बिना सीमा और पूरी गोपनीयता के। दुनिया भर में हजारों लोग उपयोग कर रहे हैं।</p>
+<a href="#tools" class="cta-button">मुफ्त टूल्स देखें <i class="fas fa-arrow-right"></i></a>
+</div>
+</section>
+
+<!-- Stats Section -->
+<section class="container">
+<div class="stats">
+<div class="stat-box">
+<i class="fas fa-users"></i>
+<h3>10,000+</h3>
+<p>सक्रिय उपयोगकर्ता</p>
+</div>
+<div class="stat-box">
+<i class="fas fa-globe-asia"></i>
+<h3>50+</h3>
+<p>देश</p>
+</div>
+<div class="stat-box">
+<i class="fas fa-clock"></i>
+<h3>100,000+</h3>
+<p>बचाए गए घंटे</p>
+</div>
+<div class="stat-box">
+<i class="fas fa-star"></i>
+<h3>4.8/5</h3>
+<p>उपयोगकर्ता रेटिंग</p>
+</div>
+</div>
+</section>
+
+<!-- Main Tools Section -->
+<section class="container" id="tools">
+<div class="section-title">
+<h2>मुफ्त प्रोडक्टिविटी टूल्स</h2>
+<p>तुरंत उपयोग शुरू करने के लिए किसी भी टूल पर क्लिक करें। कोई रजिस्ट्रेशन नहीं।</p>
+</div>
+
+<div class="tools-grid">
+<!-- Tool 1: Meeting Note Taker -->
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-clipboard-list"></i>
+</div>
+<h3>मीटिंग नोट टेकर</h3>
+<p>मीटिंग मिनट्स, एक्शन आइटम्स और निर्णय रिकॉर्ड करने के लिए स्मार्ट टेम्पलेट। महत्वपूर्ण बिंदु कभी न भूलें।</p>
+<a href="meeting-tool.html" class="tool-button">टूल उपयोग करें <i class="fas fa-external-link-alt"></i></a>
+</div>
+
+<!-- Tool 2: Social Media Scheduler -->
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-calendar-alt"></i>
+</div>
+<h3>सोशल मीडिया शेड्यूलर</h3>
+<p>अपने सोशल मीडिया पोस्ट्स पहले से प्लान और शेड्यूल करें। समय बचाएं और संगत ऑनलाइन उपस्थिति बनाए रखें।</p>
+<a href="scheduler.html" class="tool-button">टूल उपयोग करें <i class="fas fa-external-link-alt"></i></a>
+</div>
+
+<!-- Tool 3: Email Template Builder -->
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-envelope-open-text"></i>
+</div>
+<h3>ईमेल टेम्पलेट बिल्डर</h3>
+<p>सामान्य संचार के लिए पुन: प्रयोज्य ईमेल टेम्पलेट बनाएं। सेकंडों में व्यक्तिगत बनाएं और भेजें।</p>
+<a href="email-tool.html" class="tool-button">टूल उपयोग करें <i class="fas fa-external-link-alt"></i></a>
+</div>
+
+<!-- Tool 4: Project Management Tool -->
+<div class="tool-card">
+<div class="tool-icon">
+<i class="fas fa-project-diagram"></i>
+</div>
+<h3>प्रोजेक्ट मैनेजमेंट</h3>
+<p>कार्य ट्रैक करें, जिम्मेदारियां सौंपें और प्रगति की निगरानी करें। टीमों और व्यक्तियों के लिए बिल्कुल सही।</p>
+<a href="project-tool.html" class="tool-button">टूल उपयोग करें <i class="fas fa-external-link-alt"></i></a>
+</div>
+</div>
+</section>
+
+<!-- USP Section -->
+<section class="container">
+<div class="usp-section">
+<h2 style="color: var(--secondary); margin-bottom: 1rem;">ProductivityTools.in क्यों चुनें?</h2>
+<p style="color: #666; margin-bottom: 2rem;">हम अन्य प्रोडक्टिविटी टूल्स से अलग हैं</p>
+
+<div class="usp-grid">
+<div class="usp-item">
+<i class="fas fa-lock"></i>
+<h3>100% हमेशा मुफ्त</h3>
+<p>कोई छिपे हुए शुल्क नहीं, कोई प्रीमियम टियर नहीं। बुनियादी सुविधाएं हमेशा मुफ्त।</p>
+</div>
+<div class="usp-item">
+<i class="fas fa-user-shield"></i>
+<h3>कोई रजिस्ट्रेशन नहीं</h3>
+<p>अपना ईमेल साझा किए बिना तुरंत उपयोग करें। पूरी गोपनीयता।</p>
+</div>
+<div class="usp-item">
+<i class="fas fa-bolt"></i>
+<h3>तत्काल पहुंच</h3>
+<p>टूल्स तुरंत लोड होते हैं। कोई डाउनलोड नहीं, कोई इंस्टॉलेशन नहीं।</p>
+</div>
+<div class="usp-item">
+<i class="fas fa-globe"></i>
+<h3>वैश्विक समर्थन</h3>
+<p>50+ देशों के पेशेवरों द्वारा उपयोग किया जाता है। बहु-भाषा समर्थन।</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- About Section -->
+<section class="container" id="about">
+<div class="section-title">
+<h2>दुनिया भर में विश्वसनीय</h2>
+<p>दुनिया भर के पेशेवरों, छात्रों और टीमों द्वारा उपयोग किया जाता है</p>
+</div>
+
+<div class="tool-card" style="max-width: 800px; margin: 0 auto;">
+<h3 style="text-align: left; color: var(--primary);">
+<i class="fas fa-bullseye"></i> हमारा मिशन
+</h3>
+<p style="text-align: left; margin-top: 1rem;">
+हम मानते हैं कि हर किसी को महंगी सदस्यता के बिना गुणवत्तापूर्ण प्रोडक्टिविटी टूल्स तक पहुंच का अधिकार है।
+हमारा संग्रह 100% मुफ्त है, रजिस्ट्रेशन की आवश्यकता नहीं है, और आपके ब्राउज़र में तुरंत काम करता है।
+</p>
+
+<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+<div>
+<h4 style="color: var(--secondary);"><i class="fas fa-user-tie"></i> पेशेवरों के लिए</h4>
+<p>कुशल वर्कफ्लो टूल्स के साथ प्रति सप्ताह 5+ घंटे बचाएं।</p>
+</div>
+<div>
+<h4 style="color: var(--secondary);"><i class="fas fa-graduation-cap"></i> छात्रों के लिए</h4>
+<p>अध्ययन, परियोजनाओं और असाइनमेंट्स को प्रभावी ढंग से व्यवस्थित करें।</p>
+</div>
+<div>
+<h4 style="color: var(--secondary);"><i class="fas fa-users"></i> टीमों के लिए</h4>
+<p>साझा प्रोडक्टिविटी टूल्स के साथ निर्बाध रूप से सहयोग करें।</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="footer-section">
+<h4>ProductivityTools.in</h4>
+<p>दुनिया भर के पेशेवरों के लिए मुफ्त प्रोडक्टिविटी टूल्स। कोई साइनअप आवश्यक नहीं।</p>
+<div class="social-icons">
+<a href="#"><i class="fab fa-twitter"></i></a>
+<a href="#"><i class="fab fa-linkedin-in"></i></a>
+<a href="#"><i class="fab fa-github"></i></a>
+<a href="#"><i class="fab fa-product-hunt"></i></a>
+</div>
+</div>
+
+<div class="footer-section">
+<h4>त्वरित लिंक</h4>
+<ul>
+<li><a href="hindi.html">होम</a></li>
+<li><a href="about.html">हमारे बारे में</a></li>
+<li><a href="#tools">सभी टूल्स</a></li>
+<li><a href="contact.html">संपर्क करें</a></li>
+</ul>
+</div>
+
+<div class="footer-section">
+<h4>प्रोडक्टिविटी टूल्स</h4>
+<ul>
+<li><a href="meeting-tool.html">मीटिंग नोट्स</a></li>
+<li><a href="scheduler.html">सोशल मीडिया शेड्यूलर</a></li>
+<li><a href="email-tool.html">ईमेल टेम्पलेट्स</a></li>
+<li><a href="project-tool.html">प्रोजेक्ट मैनेजमेंट</a></li>
+</ul>
+</div>
+
+<div class="footer-section">
+<h4>कानूनी</h4>
+<ul>
+<li><a href="privacy.html">गोपनीयता नीति</a></li>
+<li><a href="#">सेवा की शर्तें</a></li>
+<li><a href="#">कुकी नीति</a></li>
+<li><a href="#">जीडीपीआर अनुपालन</a></li>
+</ul>
+</div>
+</div>
+
+<div class="copyright">
+&copy; 2024 ProductivityTools.in | सभी टूल्स 100% हमेशा के लिए मुफ्त |
+<a href="index.html" style="color: #4cc9f0;">View in English</a>
+</div>
+</div>
+</footer>
+
+<script>
+// Same JavaScript as English version
+document.getElementById('mobileMenu').addEventListener('click', function() {
+document.getElementById('navLinks').classList.toggle('active');
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+anchor.addEventListener('click', function (e) {
+e.preventDefault();
+const targetId = this.getAttribute('href');
+if(targetId === '#') return;
+
+const targetElement = document.querySelector(targetId);
+if(targetElement) {
+window.scrollTo({
+top: targetElement.offsetTop - 80,
+behavior: 'smooth'
+});
+
+document.getElementById('navLinks').classList.remove('active');
+}
+});
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav-links a');
+
+navLinks.forEach(link => {
+const linkPage = link.getAttribute('href');
+if(linkPage === currentPage ||
+(currentPage === '' && linkPage === 'hindi.html')) {
+link.classList.add('active');
+}
+});
+});
+</script>
+</body>
+</html>
