@@ -418,7 +418,7 @@
                 </div>
                 <h3>Meeting Note Taker</h3>
                 <p>Smart template to capture meeting minutes, action items, and decisions. Never forget important points again.</p>
-                <a href="#meeting-tool" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                <a href="meeting-tool.html" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
             </div>
             
             <!-- Tool 2: Social Media Scheduler -->
@@ -428,7 +428,7 @@
                 </div>
                 <h3>Social Media Scheduler</h3>
                 <p>Plan and schedule your social media posts in advance. Save time and maintain consistent online presence.</p>
-                <a href="#scheduler" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                <a href="scheduler.html" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
             </div>
             
             <!-- Tool 3: Email Template Builder -->
@@ -438,7 +438,7 @@
                 </div>
                 <h3>Email Template Builder</h3>
                 <p>Create reusable email templates for common communications. Personalize and send in seconds.</p>
-                <a href="#email-tool" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                <a href="email-tool.html" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
             </div>
             
             <!-- Tool 4: Project Management Tool -->
@@ -448,7 +448,7 @@
                 </div>
                 <h3>Project Management</h3>
                 <p>Track tasks, assign responsibilities, and monitor progress. Perfect for teams and individuals.</p>
-                <a href="#project-tool" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
+                <a href="project-tool.html" class="tool-button">Use Tool <i class="fas fa-external-link-alt"></i></a>
             </div>
         </div>
     </section>
@@ -554,10 +554,10 @@
                 <div class="footer-section">
                     <h4>Tools</h4>
                     <ul>
-                        <li><a href="#meeting-tool">Meeting Notes</a></li>
-                        <li><a href="#scheduler">Social Media Scheduler</a></li>
-                        <li><a href="#email-tool">Email Templates</a></li>
-                        <li><a href="#project-tool">Project Management</a></li>
+                        <li><a href="meeting-tool.html">Meeting Notes</a></li>
+                        <li><a href="scheduler.html">Social Media Scheduler</a></li>
+                        <li><a href="email-tool.html">Email Templates</a></li>
+                        <li><a href="project-tool.html">Project Management</a></li>
                     </ul>
                 </div>
                 
@@ -584,7 +584,7 @@
             document.getElementById('navLinks').classList.toggle('active');
         });
 
-        // Smooth Scrolling
+        // Smooth Scrolling (only for anchor links starting with #)
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -604,16 +604,8 @@
             });
         });
 
-        // Tool buttons alert (temporary)
-        document.querySelectorAll('.tool-button').forEach(button => {
-            button.addEventListener('click', function(e) {
-                if(this.getAttribute('href').startsWith('#')) {
-                    e.preventDefault();
-                    const toolName = this.closest('.tool-card').querySelector('h3').textContent;
-                    alert(`🚀 ${toolName} is loading...\n\n(Note: Individual tool pages will be added soon!)`);
-                }
-            });
-        });
+        // Remove the alert for tool buttons (since they are now real links)
+        // Tool buttons will now directly open the tool pages
 
         // Add animation on scroll
         window.addEventListener('scroll', function() {
@@ -646,4 +638,4 @@
         });
     </script>
 </body>
-                    </html>
+</html>
