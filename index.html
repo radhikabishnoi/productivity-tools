@@ -1,10 +1,14 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Productivity Tools - Free Resources for Everyone</title>
+    <title>ProductivityTools.in - 100% Free Productivity Suite | No Signup Required</title>
+    <meta name="description" content="Completely free productivity tools for professionals, students, and teams. No registration, no limits. Meeting notes, social media scheduler, email templates, project management.">
+    <meta name="keywords" content="free productivity tools, meeting notes, social media scheduler, email templates, project management, no signup required">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Analytics Code (Add your ID later) -->
+    <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
     <style>
         /* Modern Color Scheme - Professional & Clean */
         :root {
@@ -21,7 +25,7 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', system-ui, sans-serif;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
         }
 
         body {
@@ -68,7 +72,7 @@
 
         .nav-links {
             display: flex;
-            gap: 2rem;
+            gap: 1.5rem;
             list-style: none;
         }
 
@@ -79,6 +83,7 @@
             padding: 8px 16px;
             border-radius: 20px;
             transition: all 0.3s ease;
+            font-size: 0.95rem;
         }
 
         .nav-links a:hover {
@@ -89,6 +94,35 @@
         .nav-links a.active {
             background: var(--primary);
             color: white;
+        }
+
+        .language-switcher {
+            display: flex;
+            gap: 5px;
+            margin-left: 1rem;
+        }
+
+        .lang-btn {
+            padding: 6px 12px;
+            border-radius: 15px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .lang-btn.en {
+            background: var(--primary);
+            color: white;
+        }
+
+        .lang-btn.hi {
+            background: #f1f3f5;
+            color: var(--dark);
+        }
+
+        .lang-btn.hi:hover {
+            background: #e9ecef;
         }
 
         .mobile-menu {
@@ -242,6 +276,33 @@
             margin-bottom: 0.5rem;
         }
 
+        /* USP Section */
+        .usp-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            margin: 4rem 0;
+            text-align: center;
+        }
+
+        .usp-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .usp-item {
+            padding: 1.5rem;
+        }
+
+        .usp-item i {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
         /* Footer */
         footer {
             background: var(--dark);
@@ -313,6 +374,17 @@
             font-size: 0.9rem;
         }
 
+        /* AdSense Placeholder */
+        .adsense-placeholder {
+            background: #f8f9fa;
+            border: 2px dashed #dee2e6;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            margin: 2rem 0;
+            color: #6c757d;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 992px) {
             .stats {
@@ -352,6 +424,10 @@
             .tools-grid {
                 grid-template-columns: 1fr;
             }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
         }
 
         @media (max-width: 576px) {
@@ -359,12 +435,12 @@
                 grid-template-columns: 1fr;
             }
             
-            .footer-content {
-                grid-template-columns: 1fr;
-            }
-            
             .hero {
                 padding: 3rem 0;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
             }
         }
     </style>
@@ -386,9 +462,13 @@
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" class="active">Home</a></li>
                     <li><a href="about.html">About</a></li>
+                    <li><a href="#tools">Tools</a></li>
                     <li><a href="contact.html">Contact</a></li>
                     <li><a href="privacy.html">Privacy</a></li>
-                    <li><a href="index.html#tools" style="background: var(--accent);">Get Started</a></li>
+                    <div class="language-switcher">
+                        <a href="index.html" class="lang-btn en">EN</a>
+                        <a href="hindi.html" class="lang-btn hi">हिंदी</a>
+                    </div>
                 </ul>
             </nav>
         </div>
@@ -397,17 +477,43 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <h1>Boost Your Productivity with Free Tools</h1>
-            <p>Collection of 100% free productivity tools to organize your work, manage time, and achieve more every day. No signup required!</p>
+            <h1>Boost Productivity with 100% Free Tools</h1>
+            <p>Professional productivity suite with no signups, no limits, and complete privacy. Used by thousands worldwide.</p>
             <a href="#tools" class="cta-button">Explore Free Tools <i class="fas fa-arrow-right"></i></a>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="container">
+        <div class="stats">
+            <div class="stat-box">
+                <i class="fas fa-users"></i>
+                <h3>10,000+</h3>
+                <p>Active Users</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-globe-americas"></i>
+                <h3>50+</h3>
+                <p>Countries</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-clock"></i>
+                <h3>100,000+</h3>
+                <p>Hours Saved</p>
+            </div>
+            <div class="stat-box">
+                <i class="fas fa-star"></i>
+                <h3>4.8/5</h3>
+                <p>User Rating</p>
+            </div>
         </div>
     </section>
 
     <!-- Main Tools Section -->
     <section class="container" id="tools">
         <div class="section-title">
-            <h2>Our Free Productivity Tools</h2>
-            <p>Click on any tool to start using immediately</p>
+            <h2>Free Productivity Tools</h2>
+            <p>Click on any tool to start using immediately. No registration required.</p>
         </div>
         
         <div class="tools-grid">
@@ -453,81 +559,76 @@
         </div>
     </section>
 
-    <!-- Stats Section -->
+    <!-- USP Section -->
     <section class="container">
-        <div class="stats">
-            <div class="stat-box">
-                <i class="fas fa-users"></i>
-                <h3>10,000+</h3>
-                <p>Happy Users</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-download"></i>
-                <h3>50,000+</h3>
-                <p>Tools Downloaded</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-clock"></i>
-                <h3>100,000+</h3>
-                <p>Hours Saved</p>
-            </div>
-            <div class="stat-box">
-                <i class="fas fa-star"></i>
-                <h3>4.8/5</h3>
-                <p>User Rating</p>
+        <div class="usp-section">
+            <h2 style="color: var(--secondary); margin-bottom: 1rem;">Why Choose ProductivityTools.in?</h2>
+            <p style="color: #666; margin-bottom: 2rem;">We're different from other productivity tools</p>
+            
+            <div class="usp-grid">
+                <div class="usp-item">
+                    <i class="fas fa-lock"></i>
+                    <h3>100% Free Forever</h3>
+                    <p>No hidden charges, no premium tiers. Basic features always free.</p>
+                </div>
+                <div class="usp-item">
+                    <i class="fas fa-user-shield"></i>
+                    <h3>No Registration</h3>
+                    <p>Use instantly without sharing your email. Complete privacy.</p>
+                </div>
+                <div class="usp-item">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Instant Access</h3>
+                    <p>Tools load immediately. No downloads, no installations.</p>
+                </div>
+                <div class="usp-item">
+                    <i class="fas fa-globe"></i>
+                    <h3>Global Support</h3>
+                    <p>Used by professionals in 50+ countries. Multi-language support.</p>
+                </div>
             </div>
         </div>
     </section>
+
+    <!-- AdSense Placeholder -->
+    <div class="container">
+        <div class="adsense-placeholder">
+            <i class="fas fa-ad" style="font-size: 2rem; margin-bottom: 1rem;"></i>
+            <h3>AdSense Ready</h3>
+            <p>This space is optimized for Google AdSense ads. Perfect placement for maximum revenue.</p>
+            <p style="font-size: 0.9rem; margin-top: 0.5rem;"><em>Will show ads after AdSense approval</em></p>
+        </div>
+    </div>
 
     <!-- About Section -->
     <section class="container" id="about">
         <div class="section-title">
-            <h2>About Our Mission</h2>
-            <p>Why we created these free productivity tools</p>
+            <h2>Trusted Worldwide</h2>
+            <p>Used by professionals, students, and teams across the globe</p>
         </div>
         
         <div class="tool-card" style="max-width: 800px; margin: 0 auto;">
             <h3 style="text-align: left; color: var(--primary);">
-                <i class="fas fa-bullseye"></i> Our Vision
+                <i class="fas fa-bullseye"></i> Our Mission
             </h3>
             <p style="text-align: left; margin-top: 1rem;">
-                We believe everyone deserves access to quality productivity tools without paying expensive subscriptions. 
+                We believe everyone deserves access to quality productivity tools without expensive subscriptions. 
                 Our collection is 100% free, requires no registration, and works immediately in your browser.
             </p>
             
-            <h3 style="text-align: left; color: var(--primary); margin-top: 2rem;">
-                <i class="fas fa-handshake"></i> Completely Free Forever
-            </h3>
-            <p style="text-align: left; margin-top: 1rem;">
-                • No hidden charges<br>
-                • No email signup required<br>
-                • No premium upgrades<br>
-                • Works on all devices<br>
-                • New tools added monthly
-            </p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section class="container" id="contact">
-        <div class="section-title">
-            <h2>Contact Us</h2>
-            <p>Have suggestions or need custom tools?</p>
-        </div>
-        
-        <div class="tool-card" style="max-width: 600px; margin: 0 auto;">
-            <div class="tool-icon">
-                <i class="fas fa-comments"></i>
-            </div>
-            <h3>Get In Touch</h3>
-            <p>Email: support@productivitytool.in</p>
-            <p>Follow us on social media for updates</p>
-            
-            <div class="social-icons" style="justify-content: center;">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1.5rem; margin-top: 2rem;">
+                <div>
+                    <h4 style="color: var(--secondary);"><i class="fas fa-user-tie"></i> For Professionals</h4>
+                    <p>Save 5+ hours per week with efficient workflow tools.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--secondary);"><i class="fas fa-graduation-cap"></i> For Students</h4>
+                    <p>Organize studies, projects, and assignments effectively.</p>
+                </div>
+                <div>
+                    <h4 style="color: var(--secondary);"><i class="fas fa-users"></i> For Teams</h4>
+                    <p>Collaborate seamlessly with shared productivity tools.</p>
+                </div>
             </div>
         </div>
     </section>
@@ -538,7 +639,13 @@
             <div class="footer-content">
                 <div class="footer-section">
                     <h4>ProductivityTools.in</h4>
-                    <p>Free tools to make your daily work more efficient and organized.</p>
+                    <p>Free productivity tools for professionals worldwide. No signup required.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-github"></i></a>
+                        <a href="#"><i class="fab fa-product-hunt"></i></a>
+                    </div>
                 </div>
                 
                 <div class="footer-section">
@@ -546,13 +653,13 @@
                     <ul>
                         <li><a href="index.html">Home</a></li>
                         <li><a href="about.html">About</a></li>
+                        <li><a href="#tools">All Tools</a></li>
                         <li><a href="contact.html">Contact</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-section">
-                    <h4>Tools</h4>
+                    <h4>Productivity Tools</h4>
                     <ul>
                         <li><a href="meeting-tool.html">Meeting Notes</a></li>
                         <li><a href="scheduler.html">Social Media Scheduler</a></li>
@@ -565,15 +672,16 @@
                     <h4>Legal</h4>
                     <ul>
                         <li><a href="privacy.html">Privacy Policy</a></li>
-                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Terms of Service</a></li>
                         <li><a href="#">Cookie Policy</a></li>
-                        <li><a href="#">Disclaimer</a></li>
+                        <li><a href="#">GDPR Compliance</a></li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                &copy; 2024 ProductivityTools.in | All tools are 100% free forever
+                &copy; 2024 ProductivityTools.in | All tools are 100% free forever | 
+                <a href="hindi.html" style="color: #4cc9f0;">हिंदी में देखें</a>
             </div>
         </div>
     </footer>
@@ -584,7 +692,7 @@
             document.getElementById('navLinks').classList.toggle('active');
         });
 
-        // Smooth Scrolling (only for anchor links starting with #)
+        // Smooth Scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
@@ -603,9 +711,6 @@
                 }
             });
         });
-
-        // Remove the alert for tool buttons (since they are now real links)
-        // Tool buttons will now directly open the tool pages
 
         // Add animation on scroll
         window.addEventListener('scroll', function() {
@@ -626,16 +731,17 @@
             
             navLinks.forEach(link => {
                 const linkPage = link.getAttribute('href');
-                // Check if it's the current page (not anchor links)
                 if(linkPage === currentPage || 
-                   (currentPage === '' && linkPage === 'index.html') ||
-                   (currentPage === 'index.html' && linkPage === 'index.html')) {
+                   (currentPage === '' && linkPage === 'index.html')) {
                     link.classList.add('active');
-                } else {
-                    link.classList.remove('active');
                 }
             });
         });
+
+        // Google Analytics Simulation (for demo)
+        console.log('ProductivityTools.in loaded successfully');
+        console.log('AdSense placement: Ready');
+        console.log('International audience: Optimized');
     </script>
 </body>
 </html>
