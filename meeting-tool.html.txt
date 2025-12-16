@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meeting Note Taker - ProductivityTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same Style as Main Website */
+:root {
+--primary: #4361ee;
+--secondary: #3a0ca3;
+--accent: #4cc9f0;
+--light: #f8f9fa;
+--dark: #212529;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+min-height: 100vh;
+}
+header {
+background: white;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem 0;
+}
+.logo {
+font-size: 1.8rem;
+font-weight: 800;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--dark);
+font-weight: 600;
+padding: 8px 16px;
+border-radius: 20px;
+transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+background: var(--primary);
+color: white;
+}
+.page-header {
+text-align: center;
+padding: 4rem 0 2rem;
+background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9));
+color: white;
+margin-bottom: 3rem;
+border-radius: 0 0 30px 30px;
+}
+.page-header h1 {
+font-size: 2.8rem;
+margin-bottom: 0.5rem;
+}
+.tool-container {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 2rem;
+margin-bottom: 4rem;
+}
+@media (max-width: 768px) {
+.tool-container {
+grid-template-columns: 1fr;
+}
+}
+.input-section {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.output-section {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.form-group {
+margin-bottom: 1.5rem;
+}
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 600;
+color: var(--dark);
+}
+.form-control {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 1rem;
+transition: border 0.3s ease;
+}
+.form-control:focus {
+border-color: var(--primary);
+outline: none;
+box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+textarea.form-control {
+min-height: 150px;
+resize: vertical;
+}
+.btn {
+background: var(--primary);
+color: white;
+border: none;
+padding: 12px 24px;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+.btn:hover {
+background: var(--secondary);
+transform: translateY(-2px);
+}
+.btn-secondary {
+background: #6c757d;
+}
+.btn-secondary:hover {
+background: #5a6268;
+}
+.action-buttons {
+display: flex;
+gap: 1rem;
+margin-top: 2rem;
+flex-wrap: wrap;
+}
+.notes-output {
+background: #f8f9fa;
+border: 1px solid #dee2e6;
+border-radius: 8px;
+padding: 1.5rem;
+min-height: 400px;
+font-family: 'Courier New', monospace;
+white-space: pre-wrap;
+overflow-y: auto;
+}
+.instructions {
+background: #e7f5ff;
+border-left: 4px solid var(--accent);
+padding: 1.5rem;
+border-radius: 8px;
+margin-top: 2rem;
+}
+footer {
+background: var(--dark);
+color: white;
+padding: 2rem 0;
+margin-top: 4rem;
+text-align: center;
+}
+@media (max-width: 768px) {
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+}
+.page-header h1 {
+font-size: 2.2rem;
+}
+.action-buttons {
+flex-direction: column;
+}
+.btn {
+width: 100%;
+justify-content: center;
+}
+}
+</style>
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+<div class="container">
+<nav class="navbar">
+<a href="index.html" class="logo">
+<i class="fas fa-tools"></i>
+ProductivityTools.in
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="index.html#tools" style="background: var(--accent);">All Tools</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1><i class="fas fa-clipboard-list"></i> Meeting Note Taker</h1>
+<p>Smart tool to capture meeting minutes, decisions, and action items</p>
+</div>
+</section>
+
+<!-- Tool Interface -->
+<div class="container">
+<div class="tool-container">
+<!-- Input Section -->
+<div class="input-section">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Meeting Details</h2>
+
+<form id="meetingForm">
+<div class="form-group">
+<label for="meetingTitle"><i class="fas fa-heading"></i> Meeting Title</label>
+<input type="text" id="meetingTitle" class="form-control" placeholder="Weekly Team Sync" value="Project Kickoff Meeting">
+</div>
+
+<div class="form-group">
+<label for="meetingDate"><i class="fas fa-calendar"></i> Date</label>
+<input type="date" id="meetingDate" class="form-control" value="2024-03-15">
+</div>
+
+<div class="form-group">
+<label for="attendees"><i class="fas fa-users"></i> Attendees (comma separated)</label>
+<input type="text" id="attendees" class="form-control" placeholder="John, Sarah, Mike, Priya" value="Ravi, Priya, Amit, Sneha, Karan">
+</div>
+
+<div class="form-group">
+<label for="agenda"><i class="fas fa-list-ol"></i> Agenda</label>
+<textarea id="agenda" class="form-control" placeholder="Enter meeting agenda points">1. Project overview and goals
+2. Timeline discussion
+3. Resource allocation
+4. Risk assessment
+5. Next steps</textarea>
+</div>
+
+<div class="form-group">
+<label for="discussion"><i class="fas fa-comments"></i> Discussion Points</label>
+<textarea id="discussion" class="form-control" placeholder="Key discussion points">• Project scope finalized
+• Timeline: 3 months completion target
+• Ravi to handle frontend, Priya backend
+• Weekly status meetings every Monday
+• Budget approved by management</textarea>
+</div>
+
+<div class="form-group">
+<label for="decisions"><i class="fas fa-gavel"></i> Decisions Made</label>
+<textarea id="decisions" class="form-control" placeholder="Important decisions">• Use React for frontend, Node.js for backend
+• Development starts from March 20
+• Priya will setup project repository
+• Weekly demo every Friday
+• Budget: ₹5,00,000 approved</textarea>
+</div>
+
+<div class="form-group">
+<label for="actionItems"><i class="fas fa-tasks"></i> Action Items</label>
+<textarea id="actionItems" class="form-control" placeholder="Action items with assignee">Ravi: Create wireframes by March 18
+Priya: Setup GitHub repository and CI/CD
+Amit: Prepare infrastructure requirements
+Sneha: Create project documentation template
+Karan: Schedule client demo for next week</textarea>
+</div>
+
+<div class="action-buttons">
+<button type="button" id="generateBtn" class="btn">
+<i class="fas fa-file-alt"></i> Generate Notes
+</button>
+<button type="button" id="clearBtn" class="btn btn-secondary">
+<i class="fas fa-trash"></i> Clear All
+</button>
+<button type="button" id="downloadBtn" class="btn">
+<i class="fas fa-download"></i> Download as TXT
+</button>
+<button type="button" id="printBtn" class="btn">
+<i class="fas fa-print"></i> Print Notes
+</button>
+</div>
+</form>
+</div>
+
+<!-- Output Section -->
+<div class="output-section">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Meeting Notes Output</h2>
+
+<div class="notes-output" id="notesOutput">
+<!-- Notes will appear here -->
+Click "Generate Notes" to create formatted meeting notes
+</div>
+
+<div class="instructions">
+<h3><i class="fas fa-lightbulb"></i> How to Use:</h3>
+<ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+<li>Fill in meeting details on the left</li>
+<li>Click "Generate Notes" to create formatted output</li>
+<li>Download as text file or print for distribution</li>
+<li>Share with team members via email</li>
+</ol>
+<p style="margin-top: 1rem; font-style: italic;">
+<i class="fas fa-info-circle"></i> All data is processed locally in your browser. Nothing is sent to any server.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>&copy; 2024 ProductivityTools.in | 100% Free Meeting Note Taker</p>
+<p style="margin-top: 1rem; opacity: 0.8;">
+<a href="index.html" style="color: #4cc9f0; text-decoration: none;">Home</a> |
+<a href="about.html" style="color: #4cc9f0; text-decoration: none;">About</a> |
+<a href="contact.html" style="color: #4cc9f0; text-decoration: none;">Contact</a> |
+<a href="privacy.html" style="color: #4cc9f0; text-decoration: none;">Privacy</a>
+</p>
+</div>
+</footer>
+
+<script>
+// Generate Meeting Notes
+document.getElementById('generateBtn').addEventListener('click', function() {
+const title = document.getElementById('meetingTitle').value || 'Untitled Meeting';
+const date = document.getElementById('meetingDate').value || new Date().toISOString().split('T')[0];
+const attendees = document.getElementById('attendees').value || 'Not specified';
+const agenda = document.getElementById('agenda').value;
+const discussion = document.getElementById('discussion').value;
+const decisions = document.getElementById('decisions').value;
+const actionItems = document.getElementById('actionItems').value;
+
+const notes = `
+===========================================
+MEETING NOTES
+===========================================
+
+MEETING TITLE: ${title}
+DATE: ${date}
+ATTENDEES: ${attendees}
+
+-------------------------------------------
+AGENDA
+-------------------------------------------
+${agenda}
+
+-------------------------------------------
+DISCUSSION POINTS
+-------------------------------------------
+${discussion}
+
+-------------------------------------------
+DECISIONS MADE
+-------------------------------------------
+${decisions}
+
+-------------------------------------------
+ACTION ITEMS
+-------------------------------------------
+${actionItems}
+
+-------------------------------------------
+NEXT MEETING
+-------------------------------------------
+To be scheduled based on action item completion
+
+===========================================
+Generated by ProductivityTools.in
+${new Date().toLocaleDateString()} ${new Date().toLocaleTimeString()}
+===========================================
+`;
+
+document.getElementById('notesOutput').textContent = notes;
+
+// Show success message
+alert('Meeting notes generated successfully!');
+});
+
+// Clear All Fields
+document.getElementById('clearBtn').addEventListener('click', function() {
+if(confirm('Are you sure you want to clear all fields?')) {
+document.getElementById('meetingForm').reset();
+document.getElementById('notesOutput').textContent = 'Click "Generate Notes" to create formatted meeting notes';
+document.getElementById('meetingDate').value = new Date().toISOString().split('T')[0];
+}
+});
+
+// Download as Text File
+document.getElementById('downloadBtn').addEventListener('click', function() {
+const notes = document.getElementById('notesOutput').textContent;
+if(notes.includes('Click "Generate Notes"')) {
+alert('Please generate notes first before downloading.');
+return;
+}
+
+const title = document.getElementById('meetingTitle').value || 'meeting_notes';
+const filename = `${title.replace(/\s+/g, '_')}_${new Date().toISOString().split('T')[0]}.txt`;
+
+const blob = new Blob([notes], { type: 'text/plain' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = filename;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+
+alert(`Notes downloaded as ${filename}`);
+});
+
+// Print Notes
+document.getElementById('printBtn').addEventListener('click', function() {
+const notes = document.getElementById('notesOutput').textContent;
+if(notes.includes('Click "Generate Notes"')) {
+alert('Please generate notes first before printing.');
+return;
+}
+
+const printWindow = window.open('', '_blank');
+printWindow.document.write(`
+<html>
+<head>
+<title>Meeting Notes - ${document.getElementById('meetingTitle').value}</title>
+<style>
+body { font-family: Arial, sans-serif; line-height: 1.6; padding: 20px; }
+h1 { color: #333; border-bottom: 2px solid #4361ee; padding-bottom: 10px; }
+pre { background: #f5f5f5; padding: 15px; border-radius: 5px; white-space: pre-wrap; }
+.footer { margin-top: 30px; text-align: center; color: #666; font-size: 0.9em; }
+</style>
+</head>
+<body>
+<h1>Meeting Notes</h1>
+<pre>${notes}</pre>
+<div class="footer">
+Generated by ProductivityTools.in | ${new Date().toLocaleDateString()}
+</div>
+</body>
+</html>
+`);
+printWindow.document.close();
+printWindow.focus();
+printWindow.print();
+});
+
+// Set today's date as default
+document.addEventListener('DOMContentLoaded', function() {
+const today = new Date().toISOString().split('T')[0];
+document.getElementById('meetingDate').value = today;
+
+// Active navigation link
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+if (link.getAttribute('href') === 'meeting-tool.html') {
+link.classList.add('active');
+}
+});
+});
+</script>
+</body>
+</html>

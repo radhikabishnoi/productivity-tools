@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Template Builder - ProductivityTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same Style as Main Website */
+:root {
+--primary: #4361ee;
+--secondary: #3a0ca3;
+--accent: #4cc9f0;
+--light: #f8f9fa;
+--dark: #212529;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+min-height: 100vh;
+}
+header {
+background: white;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem 0;
+}
+.logo {
+font-size: 1.8rem;
+font-weight: 800;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--dark);
+font-weight: 600;
+padding: 8px 16px;
+border-radius: 20px;
+transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+background: var(--primary);
+color: white;
+}
+.page-header {
+text-align: center;
+padding: 4rem 0 2rem;
+background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9));
+color: white;
+margin-bottom: 3rem;
+border-radius: 0 0 30px 30px;
+}
+.page-header h1 {
+font-size: 2.8rem;
+margin-bottom: 0.5rem;
+}
+.email-container {
+display: grid;
+grid-template-columns: 300px 1fr;
+gap: 2rem;
+margin-bottom: 4rem;
+}
+@media (max-width: 992px) {
+.email-container {
+grid-template-columns: 1fr;
+}
+}
+.templates-sidebar {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.editor-section {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.template-item {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 1rem;
+margin-bottom: 1rem;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+border: 2px solid transparent;
+}
+.template-item:hover {
+background: #f8f9fa;
+transform: translateX(5px);
+}
+.template-item.active {
+background: #e7f5ff;
+border-color: var(--accent);
+}
+.template-icon {
+font-size: 1.5rem;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+background: var(--primary);
+color: white;
+}
+.form-group {
+margin-bottom: 1.5rem;
+}
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 600;
+color: var(--dark);
+}
+.form-control {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 1rem;
+transition: border 0.3s ease;
+}
+.form-control:focus {
+border-color: var(--primary);
+outline: none;
+box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+textarea.form-control {
+min-height: 200px;
+resize: vertical;
+}
+.btn {
+background: var(--primary);
+color: white;
+border: none;
+padding: 12px 24px;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+.btn:hover {
+background: var(--secondary);
+transform: translateY(-2px);
+}
+.btn-secondary {
+background: #6c757d;
+}
+.btn-secondary:hover {
+background: #5a6268;
+}
+.action-buttons {
+display: flex;
+gap: 1rem;
+margin-top: 2rem;
+flex-wrap: wrap;
+}
+.email-preview {
+background: #f8f9fa;
+border: 1px solid #dee2e6;
+border-radius: 8px;
+padding: 2rem;
+min-height: 400px;
+margin-top: 2rem;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+.email-header {
+border-bottom: 2px solid var(--primary);
+padding-bottom: 1rem;
+margin-bottom: 1.5rem;
+}
+.variables-panel {
+background: #e7f5ff;
+border-left: 4px solid var(--accent);
+padding: 1.5rem;
+border-radius: 8px;
+margin-top: 2rem;
+}
+.variable-tag {
+display: inline-block;
+background: var(--primary);
+color: white;
+padding: 4px 8px;
+border-radius: 4px;
+font-size: 0.9rem;
+margin: 2px;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.variable-tag:hover {
+background: var(--secondary);
+transform: scale(1.05);
+}
+.instructions {
+background: #e7f5ff;
+border-left: 4px solid var(--accent);
+padding: 1.5rem;
+border-radius: 8px;
+margin-top: 2rem;
+}
+footer {
+background: var(--dark);
+color: white;
+padding: 2rem 0;
+margin-top: 4rem;
+text-align: center;
+}
+@media (max-width: 768px) {
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+}
+.page-header h1 {
+font-size: 2.2rem;
+}
+.action-buttons {
+flex-direction: column;
+}
+.btn {
+width: 100%;
+justify-content: center;
+}
+}
+</style>
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+<div class="container">
+<nav class="navbar">
+<a href="index.html" class="logo">
+<i class="fas fa-tools"></i>
+ProductivityTools.in
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="index.html#tools" style="background: var(--accent);">All Tools</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1><i class="fas fa-envelope-open-text"></i> Email Template Builder</h1>
+<p>Create professional email templates in seconds</p>
+</div>
+</section>
+
+<!-- Tool Interface -->
+<div class="container">
+<div class="email-container">
+<!-- Templates Sidebar -->
+<div class="templates-sidebar">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Email Templates</h2>
+
+<div class="template-item active" data-template="welcome">
+<div class="template-icon">
+<i class="fas fa-handshake"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Welcome Email</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">For new customers/users</p>
+</div>
+</div>
+
+<div class="template-item" data-template="followup">
+<div class="template-icon">
+<i class="fas fa-redo"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Follow-up</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">After meetings/calls</p>
+</div>
+</div>
+
+<div class="template-item" data-template="invoice">
+<div class="template-icon">
+<i class="fas fa-file-invoice-dollar"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Invoice/Payment</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">Payment reminders</p>
+</div>
+</div>
+
+<div class="template-item" data-template="thanks">
+<div class="template-icon">
+<i class="fas fa-heart"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Thank You</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">After purchase/support</p>
+</div>
+</div>
+
+<div class="template-item" data-template="custom">
+<div class="template-icon">
+<i class="fas fa-edit"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Custom Template</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">Create from scratch</p>
+</div>
+</div>
+
+<div class="variables-panel">
+<h3 style="color: var(--primary); margin-bottom: 1rem;">Quick Variables</h3>
+<p style="margin-bottom: 0.5rem; font-size: 0.9rem;">Click to insert:</p>
+<div>
+<span class="variable-tag" data-var="{name}">{name}</span>
+<span class="variable-tag" data-var="{company}">{company}</span>
+<span class="variable-tag" data-var="{date}">{date}</span>
+<span class="variable-tag" data-var="{product}">{product}</span>
+<span class="variable-tag" data-var="{amount}">{amount}</span>
+<span class="variable-tag" data-var="{website}">{website}</span>
+</div>
+</div>
+</div>
+
+<!-- Editor Section -->
+<div class="editor-section">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Email Editor</h2>
+
+<form id="emailForm">
+<div class="form-group">
+<label for="emailSubject"><i class="fas fa-heading"></i> Subject Line</label>
+<input type="text" id="emailSubject" class="form-control" placeholder="Email subject" value="Welcome to ProductivityTools.in!">
+</div>
+
+<div class="form-group">
+<label for="recipientName"><i class="fas fa-user"></i> Recipient Name</label>
+<input type="text" id="recipientName" class="form-control" placeholder="Recipient name" value="{name}">
+</div>
+
+<div class="form-group">
+<label for="senderName"><i class="fas fa-user-tie"></i> Your Name</label>
+<input type="text" id="senderName" class="form-control" placeholder="Your name" value="ProductivityTools Team">
+</div>
+
+<div class="form-group">
+<label for="emailBody"><i class="fas fa-edit"></i> Email Body</label>
+<textarea id="emailBody" class="form-control" placeholder="Write your email content...">Dear {name},
+
+Welcome to ProductivityTools.in! We're thrilled to have you join our community of productive individuals.
+
+At ProductivityTools.in, we offer 100% free productivity tools to help you:
+• Organize your work efficiently
+• Manage your time effectively
+• Achieve more every day
+
+Our tools include:
+✓ Meeting Note Taker
+✓ Social Media Scheduler
+✓ Email Template Builder
+✓ Project Management Tool
+
+All tools are completely free, require no registration, and work immediately in your browser.
+
+To get started, visit: {website}
+
+If you have any questions or need assistance, feel free to reply to this email.
+
+Best regards,
+{sender}
+ProductivityTools.in Team</textarea>
+</div>
+
+<div class="action-buttons">
+<button type="button" id="previewBtn" class="btn">
+<i class="fas fa-eye"></i> Preview Email
+</button>
+<button type="button" id="generateBtn" class="btn">
+<i class="fas fa-magic"></i> Generate Template
+</button>
+<button type="button" id="clearBtn" class="btn btn-secondary">
+<i class="fas fa-trash"></i> Clear All
+</button>
+<button type="button" id="copyBtn" class="btn">
+<i class="fas fa-copy"></i> Copy to Clipboard
+</button>
+<button type="button" id="downloadBtn" class="btn">
+<i class="fas fa-download"></i> Download as TXT
+</button>
+</div>
+</form>
+
+<!-- Email Preview -->
+<div class="email-preview" id="emailPreview">
+<div class="email-header">
+<h3 style="margin: 0 0 5px 0; color: var(--secondary);">Email Preview</h3>
+<p style="margin: 0; color: #666;">Click "Preview Email" to see your template here</p>
+</div>
+<div id="previewContent">
+<!-- Preview content will appear here -->
+</div>
+</div>
+
+<div class="instructions">
+<h3><i class="fas fa-lightbulb"></i> How to Use:</h3>
+<ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+<li>Select template from left sidebar</li>
+<li>Customize subject line and content</li>
+<li>Use variables for personalization (click to insert)</li>
+<li>Preview your email template</li>
+<li>Copy or download for use</li>
+</ol>
+<p style="margin-top: 1rem; font-style: italic;">
+<i class="fas fa-shield-alt"></i> All processing happens locally in your browser. Your data never leaves your device.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>&copy; 2024 ProductivityTools.in | Free Email Template Builder</p>
+<p style="margin-top: 1rem; opacity: 0.8;">
+<a href="index.html" style="color: #4cc9f0; text-decoration: none;">Home</a> |
+<a href="about.html" style="color: #4cc9f0; text-decoration: none;">About</a> |
+<a href="contact.html" style="color: #4cc9f0; text-decoration: none;">Contact</a> |
+<a href="privacy.html" style="color: #4cc9f0; text-decoration: none;">Privacy</a>
+</p>
+</div>
+</footer>
+
+<script>
+// Template Selection
+document.querySelectorAll('.template-item').forEach(item => {
+item.addEventListener('click', function() {
+document.querySelectorAll('.template-item').forEach(i => i.classList.remove('active'));
+this.classList.add('active');
+
+const template = this.dataset.template;
+loadTemplate(template);
+});
+});
+
+// Variable Tags
+document.querySelectorAll('.variable-tag').forEach(tag => {
+tag.addEventListener('click', function() {
+const variable = this.dataset.var;
+const textarea = document.getElementById('emailBody');
+const start = textarea.selectionStart;
+const end = textarea.selectionEnd;
+const text = textarea.value;
+
+textarea.value = text.substring(0, start) + variable + text.substring(end);
+textarea.focus();
+textarea.selectionStart = textarea.selectionEnd = start + variable.length;
+});
+});
+
+// Template Data
+const templates = {
+welcome: {
+subject: "Welcome to {company}!",
+body: `Dear {name},
+
+Welcome to {company}! We're excited to have you on board.
+
+Our mission is to help you {goal}. With our tools, you can:
+• Achieve your goals faster
+• Save time on repetitive tasks
+• Focus on what matters most
+
+To get started, visit: {website}
+
+If you have any questions, don't hesitate to reach out.
+
+Best regards,
+{sender}
+{company} Team`
+},
+followup: {
+subject: "Follow-up: {topic}",
+body: `Dear {name},
+
+Following up on our conversation about {topic}.
+
+As discussed, here are the next steps:
+1. {step1}
+2. {step2}
+3. {step3}
+
+Please let me know if you have any questions or need clarification.
+
+Looking forward to hearing from you.
+
+Best regards,
+{sender}
+{company}`
+},
+invoice: {
+subject: "Invoice #{invoice_number} from {company}",
+body: `Dear {name},
+
+Please find attached invoice #{invoice_number} for {service}.
+
+Invoice Details:
+• Amount: {amount}
+• Due Date: {due_date}
+• Service: {service}
+
+You can make the payment via {payment_method}.
+
+If you have already made the payment, please ignore this email.
+
+Thank you for your business!
+
+Best regards,
+{sender}
+{company}`
+},
+thanks: {
+subject: "Thank you for your {action}",
+body: `Dear {name},
+
+Thank you for your recent {action}. We truly appreciate your {support/business}.
+
+Your {feedback/order} helps us improve and serve you better.
+
+If there's anything else we can assist you with, please don't hesitate to contact us.
+
+Warm regards,
+{sender}
+{company} Team`
+},
+custom: {
+subject: "",
+body: ""
+}
+};
+
+// Load Template
+function loadTemplate(templateType) {
+const template = templates[templateType];
+
+if(template) {
+document.getElementById('emailSubject').value = template.subject;
+document.getElementById('emailBody').value = template.body;
+
+if(templateType === 'welcome') {
+document.getElementById('recipientName').value = '{name}';
+document.getElementById('senderName').value = 'ProductivityTools Team';
+} else if(templateType === 'custom') {
+document.getElementById('recipientName').value = '';
+document.getElementById('senderName').value = '';
+}
+}
+}
+
+// Preview Email
+document.getElementById('previewBtn').addEventListener('click', function() {
+const subject = document.getElementById('emailSubject').value;
+const recipient = document.getElementById('recipientName').value || '{name}';
+const sender = document.getElementById('senderName').value || '{sender}';
+let body = document.getElementById('emailBody').value;
+
+// Replace variables with sample data for preview
+const variables = {
+'{name}': 'John Doe',
+'{company}': 'ProductivityTools.in',
+'{date}': new Date().toLocaleDateString(),
+'{product}': 'Meeting Note Taker',
+'{amount}': '₹5,000',
+'{website}': 'productivitytool.in',
+'{sender}': sender,
+'{goal}': 'boost your productivity',
+'{topic}': 'our meeting yesterday',
+'{step1}': 'Review the proposal',
+'{step2}': 'Provide feedback by Friday',
+'{step3}': 'Schedule next meeting',
+'{invoice_number}': 'INV-2024-001',
+'{service}': 'Premium Subscription',
+'{due_date}': 'March 30, 2024',
+'{payment_method}': 'bank transfer or UPI',
+'{action}': 'purchase',
+'{support/business}': 'support',
+'{feedback/order}': 'feedback'
+};
+
+// Replace all variables in body
+Object.keys(variables).forEach(varName => {
+const regex = new RegExp(varName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+body = body.replace(regex, variables[varName]);
+});
+
+// Replace variables in subject
+let previewSubject = subject;
+Object.keys(variables).forEach(varName => {
+const regex = new RegExp(varName.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'g');
+previewSubject = previewSubject.replace(regex, variables[varName]);
+});
+
+// Generate preview HTML
+const previewHTML = `
+<div style="font-family: Arial, sans-serif; line-height: 1.6; color: #333;">
+<div style="margin-bottom: 20px;">
+<strong>To:</strong> ${recipient.replace(/{name}/g, 'John Doe')}<br>
+<strong>From:</strong> ${sender}<br>
+<strong>Subject:</strong> ${previewSubject}
+</div>
+<div style="border-top: 2px solid #eee; padding-top: 20px;">
+${body.replace(/\n/g, '<br>')}
+</div>
+<div style="margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; font-size: 0.9em; color: #666;">
+<em>This is a preview. Variables have been replaced with sample data.</em>
+</div>
+</div>
+`;
+
+document.getElementById('previewContent').innerHTML = previewHTML;
+});
+
+// Generate Template
+document.getElementById('generateBtn').addEventListener('click', function() {
+const subject = document.getElementById('emailSubject').value;
+const recipient = document.getElementById('recipientName').value;
+const sender = document.getElementById('senderName').value;
+const body = document.getElementById('emailBody').value;
+
+const template = `EMAIL TEMPLATE
+===============================
+
+SUBJECT: ${subject}
+
+TO: ${recipient}
+FROM: ${sender}
+
+BODY:
+${body}
+
+===============================
+Generated by ProductivityTools.in
+Date: ${new Date().toLocaleDateString()}
+===============================`;
+
+alert('✅ Template generated successfully!\n\nYou can now copy or download it.');
+
+// Show in preview
+document.getElementById('previewContent').innerHTML = `
+<div style="font-family: 'Courier New', monospace; white-space: pre-wrap; background: #f5f5f5; padding: 15px; border-radius: 5px;">
+${template}
+</div>
+`;
+});
+
+// Clear All
+document.getElementById('clearBtn').addEventListener('click', function() {
+if(confirm('Clear all fields and start fresh?')) {
+document.getElementById('emailSubject').value = '';
+document.getElementById('recipientName').value = '';
+document.getElementById('senderName').value = '';
+document.getElementById('emailBody').value = '';
+document.getElementById('previewContent').innerHTML = '';
+}
+});
+
+// Copy to Clipboard
+document.getElementById('copyBtn').addEventListener('click', function() {
+const subject = document.getElementById('emailSubject').value;
+const recipient = document.getElementById('recipientName').value;
+const sender = document.getElementById('senderName').value;
+const body = document.getElementById('emailBody').value;
+
+const template = `Subject: ${subject}
+
+To: ${recipient}
+From: ${sender}
+
+${body}`;
+
+navigator.clipboard.writeText(template)
+.then(() => alert('✅ Email template copied to clipboard!'))
+.catch(() => {
+// Fallback for older browsers
+const textarea = document.createElement('textarea');
+textarea.value = template;
+document.body.appendChild(textarea);
+textarea.select();
+document.execCommand('copy');
+document.body.removeChild(textarea);
+alert('✅ Email template copied to clipboard!');
+});
+});
+
+// Download as TXT
+document.getElementById('downloadBtn').addEventListener('click', function() {
+const subject = document.getElementById('emailSubject').value;
+const recipient = document.getElementById('recipientName').value;
+const sender = document.getElementById('senderName').value;
+const body = document.getElementById('emailBody').value;
+
+const template = `EMAIL TEMPLATE
+===============================
+
+SUBJECT: ${subject}
+
+TO: ${recipient}
+FROM: ${sender}
+
+BODY:
+${body}
+
+===============================
+Generated by ProductivityTools.in
+Date: ${new Date().toLocaleDateString()}
+===============================`;
+
+const blob = new Blob([template], { type: 'text/plain' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = `email_template_${new Date().toISOString().split('T')[0]}.txt`;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+
+alert('Email template downloaded as text file!');
+});
+
+// Initialize
+document.addEventListener('DOMContentLoaded', function() {
+loadTemplate('welcome');
+
+// Active navigation link
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+if (link.getAttribute('href') === 'email-tool.html') {
+link.classList.add('active');
+}
+});
+});
+</script>
+</body>
+</html>

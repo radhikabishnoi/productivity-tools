@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Media Scheduler - ProductivityTools.in</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+/* Same Style as Main Website */
+:root {
+--primary: #4361ee;
+--secondary: #3a0ca3;
+--accent: #4cc9f0;
+--light: #f8f9fa;
+--dark: #212529;
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+font-family: 'Segoe UI', system-ui, sans-serif;
+}
+body {
+background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+color: var(--dark);
+line-height: 1.6;
+min-height: 100vh;
+}
+header {
+background: white;
+box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+position: sticky;
+top: 0;
+z-index: 1000;
+}
+.container {
+max-width: 1200px;
+margin: 0 auto;
+padding: 0 20px;
+}
+.navbar {
+display: flex;
+justify-content: space-between;
+align-items: center;
+padding: 1.2rem 0;
+}
+.logo {
+font-size: 1.8rem;
+font-weight: 800;
+color: var(--primary);
+text-decoration: none;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+.nav-links {
+display: flex;
+gap: 2rem;
+list-style: none;
+}
+.nav-links a {
+text-decoration: none;
+color: var(--dark);
+font-weight: 600;
+padding: 8px 16px;
+border-radius: 20px;
+transition: all 0.3s ease;
+}
+.nav-links a:hover, .nav-links a.active {
+background: var(--primary);
+color: white;
+}
+.page-header {
+text-align: center;
+padding: 4rem 0 2rem;
+background: linear-gradient(rgba(67, 97, 238, 0.9), rgba(58, 12, 163, 0.9));
+color: white;
+margin-bottom: 3rem;
+border-radius: 0 0 30px 30px;
+}
+.page-header h1 {
+font-size: 2.8rem;
+margin-bottom: 0.5rem;
+}
+.scheduler-container {
+display: grid;
+grid-template-columns: 300px 1fr;
+gap: 2rem;
+margin-bottom: 4rem;
+}
+@media (max-width: 992px) {
+.scheduler-container {
+grid-template-columns: 1fr;
+}
+}
+.platform-sidebar {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.calendar-section {
+background: white;
+padding: 2rem;
+border-radius: 15px;
+box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+.platform-item {
+display: flex;
+align-items: center;
+gap: 1rem;
+padding: 1rem;
+margin-bottom: 1rem;
+border-radius: 10px;
+cursor: pointer;
+transition: all 0.3s ease;
+border: 2px solid transparent;
+}
+.platform-item:hover {
+background: #f8f9fa;
+transform: translateX(5px);
+}
+.platform-item.active {
+background: #e7f5ff;
+border-color: var(--accent);
+}
+.platform-icon {
+font-size: 1.5rem;
+width: 40px;
+height: 40px;
+display: flex;
+align-items: center;
+justify-content: center;
+border-radius: 50%;
+color: white;
+}
+.instagram { background: linear-gradient(45deg, #405DE6, #5851DB, #833AB4, #C13584, #E1306C, #FD1D1D); }
+.facebook { background: #1877F2; }
+.twitter { background: #1DA1F2; }
+.linkedin { background: #0077B5; }
+.form-group {
+margin-bottom: 1.5rem;
+}
+.form-group label {
+display: block;
+margin-bottom: 0.5rem;
+font-weight: 600;
+color: var(--dark);
+}
+.form-control {
+width: 100%;
+padding: 12px 15px;
+border: 1px solid #ddd;
+border-radius: 8px;
+font-size: 1rem;
+transition: border 0.3s ease;
+}
+.form-control:focus {
+border-color: var(--primary);
+outline: none;
+box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+}
+textarea.form-control {
+min-height: 120px;
+resize: vertical;
+}
+.time-inputs {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 1rem;
+}
+.btn {
+background: var(--primary);
+color: white;
+border: none;
+padding: 12px 24px;
+border-radius: 8px;
+font-size: 1rem;
+font-weight: 600;
+cursor: pointer;
+transition: all 0.3s ease;
+display: inline-flex;
+align-items: center;
+gap: 8px;
+}
+.btn:hover {
+background: var(--secondary);
+transform: translateY(-2px);
+}
+.btn-secondary {
+background: #6c757d;
+}
+.btn-secondary:hover {
+background: #5a6268;
+}
+.action-buttons {
+display: flex;
+gap: 1rem;
+margin-top: 2rem;
+flex-wrap: wrap;
+}
+.calendar-grid {
+display: grid;
+grid-template-columns: repeat(7, 1fr);
+gap: 10px;
+margin-top: 2rem;
+}
+.calendar-day {
+background: #f8f9fa;
+border: 1px solid #dee2e6;
+border-radius: 8px;
+padding: 15px;
+min-height: 150px;
+position: relative;
+}
+.calendar-day-header {
+text-align: center;
+font-weight: bold;
+margin-bottom: 10px;
+color: var(--secondary);
+border-bottom: 2px solid var(--accent);
+padding-bottom: 5px;
+}
+.calendar-day.today {
+background: #e7f5ff;
+border-color: var(--accent);
+}
+.scheduled-post {
+background: var(--primary);
+color: white;
+padding: 5px 10px;
+border-radius: 5px;
+margin-bottom: 5px;
+font-size: 0.8rem;
+cursor: pointer;
+transition: all 0.3s ease;
+}
+.scheduled-post:hover {
+background: var(--secondary);
+transform: scale(1.05);
+}
+.post-count {
+position: absolute;
+top: 5px;
+right: 5px;
+background: var(--accent);
+color: white;
+width: 25px;
+height: 25px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.8rem;
+font-weight: bold;
+}
+.instructions {
+background: #e7f5ff;
+border-left: 4px solid var(--accent);
+padding: 1.5rem;
+border-radius: 8px;
+margin-top: 2rem;
+}
+footer {
+background: var(--dark);
+color: white;
+padding: 2rem 0;
+margin-top: 4rem;
+text-align: center;
+}
+@media (max-width: 768px) {
+.nav-links {
+flex-wrap: wrap;
+justify-content: center;
+gap: 1rem;
+}
+.page-header h1 {
+font-size: 2.2rem;
+}
+.action-buttons {
+flex-direction: column;
+}
+.btn {
+width: 100%;
+justify-content: center;
+}
+.calendar-grid {
+grid-template-columns: repeat(2, 1fr);
+}
+}
+@media (max-width: 480px) {
+.calendar-grid {
+grid-template-columns: 1fr;
+}
+}
+</style>
+</head>
+<body>
+<!-- Header & Navigation -->
+<header>
+<div class="container">
+<nav class="navbar">
+<a href="index.html" class="logo">
+<i class="fas fa-tools"></i>
+ProductivityTools.in
+</a>
+<ul class="nav-links">
+<li><a href="index.html">Home</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="contact.html">Contact</a></li>
+<li><a href="privacy.html">Privacy</a></li>
+<li><a href="index.html#tools" style="background: var(--accent);">All Tools</a></li>
+</ul>
+</nav>
+</div>
+</header>
+
+<!-- Page Header -->
+<section class="page-header">
+<div class="container">
+<h1><i class="fas fa-calendar-alt"></i> Social Media Scheduler</h1>
+<p>Plan and schedule your social media posts in advance</p>
+</div>
+</section>
+
+<!-- Tool Interface -->
+<div class="container">
+<div class="scheduler-container">
+<!-- Platform Sidebar -->
+<div class="platform-sidebar">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Social Platforms</h2>
+
+<div class="platform-item active" data-platform="instagram">
+<div class="platform-icon instagram">
+<i class="fab fa-instagram"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Instagram</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">3 posts scheduled</p>
+</div>
+</div>
+
+<div class="platform-item" data-platform="facebook">
+<div class="platform-icon facebook">
+<i class="fab fa-facebook-f"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Facebook</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">2 posts scheduled</p>
+</div>
+</div>
+
+<div class="platform-item" data-platform="twitter">
+<div class="platform-icon twitter">
+<i class="fab fa-twitter"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">Twitter</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">5 posts scheduled</p>
+</div>
+</div>
+
+<div class="platform-item" data-platform="linkedin">
+<div class="platform-icon linkedin">
+<i class="fab fa-linkedin-in"></i>
+</div>
+<div>
+<h3 style="margin: 0; font-size: 1.1rem;">LinkedIn</h3>
+<p style="margin: 5px 0 0; color: #666; font-size: 0.9rem;">1 post scheduled</p>
+</div>
+</div>
+
+<div class="instructions" style="margin-top: 2rem;">
+<h3><i class="fas fa-lightbulb"></i> Tips:</h3>
+<ul style="margin-top: 0.5rem; padding-left: 1.5rem;">
+<li>Best time to post: 9-11 AM & 7-9 PM</li>
+<li>Use relevant hashtags for reach</li>
+<li>Engage with comments daily</li>
+<li>Maintain consistent posting schedule</li>
+</ul>
+</div>
+</div>
+
+<!-- Calendar Section -->
+<div class="calendar-section">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">Schedule New Post</h2>
+
+<form id="postForm">
+<div class="form-group">
+<label for="postContent"><i class="fas fa-edit"></i> Post Content</label>
+<textarea id="postContent" class="form-control" placeholder="Write your post content here...">Excited to share our new productivity tool! Boost your efficiency with our free meeting note taker. 🚀
+
+#productivity #tools #freetools #efficiency #workfromhome #timemanagement
+
+Check it out: productivitytool.in</textarea>
+</div>
+
+<div class="form-group">
+<label for="postDate"><i class="fas fa-calendar"></i> Schedule Date</label>
+<input type="date" id="postDate" class="form-control">
+</div>
+
+<div class="form-group">
+<label><i class="fas fa-clock"></i> Schedule Time</label>
+<div class="time-inputs">
+<select id="postHour" class="form-control">
+<option value="09">09</option>
+<option value="10" selected>10</option>
+<option value="11">11</option>
+<option value="12">12</option>
+<option value="13">13</option>
+<option value="14">14</option>
+<option value="15">15</option>
+<option value="16">16</option>
+<option value="17">17</option>
+<option value="18">18</option>
+<option value="19">19</option>
+<option value="20">20</option>
+</select>
+<select id="postMinute" class="form-control">
+<option value="00" selected>00</option>
+<option value="15">15</option>
+<option value="30">30</option>
+<option value="45">45</option>
+</select>
+</div>
+</div>
+
+<div class="form-group">
+<label><i class="fas fa-hashtag"></i> Hashtags (comma separated)</label>
+<input type="text" id="hashtags" class="form-control" placeholder="#productivity, #tools, #freetools" value="#productivity, #tools, #freetools, #efficiency">
+</div>
+
+<div class="action-buttons">
+<button type="button" id="scheduleBtn" class="btn">
+<i class="fas fa-calendar-plus"></i> Schedule Post
+</button>
+<button type="button" id="clearBtn" class="btn btn-secondary">
+<i class="fas fa-trash"></i> Clear Form
+</button>
+<button type="button" id="exportBtn" class="btn">
+<i class="fas fa-file-export"></i> Export Schedule
+</button>
+</div>
+</form>
+
+<!-- Calendar View -->
+<div style="margin-top: 3rem;">
+<h2 style="color: var(--secondary); margin-bottom: 1.5rem;">March 2024 Schedule</h2>
+
+<div class="calendar-grid" id="calendarGrid">
+<!-- Calendar days will be generated by JavaScript -->
+</div>
+</div>
+
+<div class="instructions">
+<h3><i class="fas fa-info-circle"></i> How to Use:</h3>
+<ol style="margin-top: 0.5rem; padding-left: 1.5rem;">
+<li>Select platform from left sidebar</li>
+<li>Write your post content and add hashtags</li>
+<li>Choose date and time for scheduling</li>
+<li>Click "Schedule Post" to add to calendar</li>
+<li>Export schedule for reference</li>
+</ol>
+<p style="margin-top: 1rem; font-style: italic;">
+<i class="fas fa-shield-alt"></i> Note: This is a planning tool. Actual posting requires manual action or integration with social media APIs.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer>
+<div class="container">
+<p>&copy; 2024 ProductivityTools.in | Free Social Media Scheduler</p>
+<p style="margin-top: 1rem; opacity: 0.8;">
+<a href="index.html" style="color: #4cc9f0; text-decoration: none;">Home</a> |
+<a href="about.html" style="color: #4cc9f0; text-decoration: none;">About</a> |
+<a href="contact.html" style="color: #4cc9f0; text-decoration: none;">Contact</a> |
+<a href="privacy.html" style="color: #4cc9f0; text-decoration: none;">Privacy</a>
+</p>
+</div>
+</footer>
+
+<script>
+// Platform Selection
+document.querySelectorAll('.platform-item').forEach(item => {
+item.addEventListener('click', function() {
+document.querySelectorAll('.platform-item').forEach(i => i.classList.remove('active'));
+this.classList.add('active');
+
+const platform = this.dataset.platform;
+document.getElementById('postForm').dataset.platform = platform;
+
+// Update form placeholder based on platform
+const textarea = document.getElementById('postContent');
+if(platform === 'twitter') {
+textarea.placeholder = 'Write your tweet (280 characters max)...';
+} else if(platform === 'instagram') {
+textarea.placeholder = 'Write your Instagram caption...';
+} else {
+textarea.placeholder = 'Write your post content here...';
+}
+});
+});
+
+// Set default date to today
+document.addEventListener('DOMContentLoaded', function() {
+const today = new Date();
+const todayStr = today.toISOString().split('T')[0];
+document.getElementById('postDate').value = todayStr;
+
+// Generate calendar for current month
+generateCalendar(today.getFullYear(), today.getMonth());
+
+// Active navigation link
+const currentPage = window.location.pathname.split('/').pop();
+const navLinks = document.querySelectorAll('.nav-links a');
+navLinks.forEach(link => {
+if (link.getAttribute('href') === 'scheduler.html') {
+link.classList.add('active');
+}
+});
+});
+
+// Generate Calendar
+function generateCalendar(year, month) {
+const calendarGrid = document.getElementById('calendarGrid');
+calendarGrid.innerHTML = '';
+
+const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
+
+// Add day headers
+daysOfWeek.forEach(day => {
+const dayHeader = document.createElement('div');
+dayHeader.className = 'calendar-day-header';
+dayHeader.textContent = day;
+calendarGrid.appendChild(dayHeader);
+});
+
+const firstDay = new Date(year, month, 1).getDay();
+const daysInMonth = new Date(year, month + 1, 0).getDate();
+const today = new Date();
+const isCurrentMonth = today.getMonth() === month && today.getFullYear() === year;
+
+// Add empty cells for days before first day of month
+for(let i = 0; i < firstDay; i++) {
+const emptyDay = document.createElement('div');
+emptyDay.className = 'calendar-day';
+calendarGrid.appendChild(emptyDay);
+}
+
+// Add days of month
+for(let day = 1; day <= daysInMonth; day++) {
+const dayElement = document.createElement('div');
+dayElement.className = 'calendar-day';
+
+if(isCurrentMonth && day === today.getDate()) {
+dayElement.classList.add('today');
+}
+
+const dayHeader = document.createElement('div');
+dayHeader.className = 'calendar-day-header';
+dayHeader.textContent = day;
+dayElement.appendChild(dayHeader);
+
+// Add sample scheduled posts (random for demo)
+if(Math.random() > 0.7 && day >= today.getDate()) {
+const postCount = Math.floor(Math.random() * 3) + 1;
+const countBadge = document.createElement('div');
+countBadge.className = 'post-count';
+countBadge.textContent = postCount;
+dayElement.appendChild(countBadge);
+
+for(let i = 0; i < postCount; i++) {
+const platforms = ['Instagram', 'Facebook', 'Twitter'];
+const platform = platforms[Math.floor(Math.random() * platforms.length)];
+const times = ['9:00 AM', '1:00 PM', '7:00 PM'];
+const time = times[i % times.length];
+
+const post = document.createElement('div');
+post.className = 'scheduled-post';
+post.textContent = `${platform} - ${time}`;
+post.title = `Click to view details`;
+post.addEventListener('click', function() {
+alert(`Scheduled Post Details:\n\nPlatform: ${platform}\nTime: ${time}\nDate: ${day}/${month + 1}/${year}\n\nContent: "Check out our new productivity tool!"`);
+});
+dayElement.appendChild(post);
+}
+}
+
+calendarGrid.appendChild(dayElement);
+}
+}
+
+// Schedule Post
+document.getElementById('scheduleBtn').addEventListener('click', function() {
+const content = document.getElementById('postContent').value;
+const date = document.getElementById('postDate').value;
+const hour = document.getElementById('postHour').value;
+const minute = document.getElementById('postMinute').value;
+const hashtags = document.getElementById('hashtags').value;
+const platform = document.querySelector('.platform-item.active').dataset.platform;
+
+if(!content.trim()) {
+alert('Please enter post content');
+return;
+}
+
+if(!date) {
+alert('Please select a date');
+return;
+}
+
+const scheduledDate = new Date(`${date}T${hour}:${minute}:00`);
+const now = new Date();
+
+if(scheduledDate < now) {
+alert('Please select a future date and time');
+return;
+}
+
+// Format date for display
+const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+const formattedDate = scheduledDate.toLocaleDateString('en-IN', options);
+
+const platformNames = {
+instagram: 'Instagram',
+facebook: 'Facebook',
+twitter: 'Twitter',
+linkedin: 'LinkedIn'
+};
+
+alert(`✅ Post Scheduled Successfully!\n\nPlatform: ${platformNames[platform]}\nDate: ${formattedDate}\nTime: ${hour}:${minute}\n\nYour post is now in the calendar. Remember to post it manually or use a social media management tool.`);
+
+// Clear form
+document.getElementById('postContent').value = '';
+document.getElementById('hashtags').value = '';
+
+// Update calendar
+generateCalendar(new Date().getFullYear(), new Date().getMonth());
+});
+
+// Clear Form
+document.getElementById('clearBtn').addEventListener('click', function() {
+if(confirm('Clear all form fields?')) {
+document.getElementById('postContent').value = '';
+document.getElementById('hashtags').value = '';
+document.getElementById('postDate').value = new Date().toISOString().split('T')[0];
+document.getElementById('postHour').value = '10';
+document.getElementById('postMinute').value = '00';
+}
+});
+
+// Export Schedule
+document.getElementById('exportBtn').addEventListener('click', function() {
+const schedule = `Social Media Schedule - ${new Date().toLocaleDateString()}
+
+Platform: ${document.querySelector('.platform-item.active').dataset.platform}
+Date: ${document.getElementById('postDate').value}
+Time: ${document.getElementById('postHour').value}:${document.getElementById('postMinute').value}
+Hashtags: ${document.getElementById('hashtags').value}
+
+Content:
+${document.getElementById('postContent').value}
+
+-------------------
+Generated by ProductivityTools.in
+Export Date: ${new Date().toLocaleString()}
+`;
+
+const blob = new Blob([schedule], { type: 'text/plain' });
+const url = URL.createObjectURL(blob);
+const a = document.createElement('a');
+a.href = url;
+a.download = `social_media_schedule_${new Date().toISOString().split('T')[0]}.txt`;
+document.body.appendChild(a);
+a.click();
+document.body.removeChild(a);
+URL.revokeObjectURL(url);
+
+alert('Schedule exported as text file!');
+});
+</script>
+</body>
+</html>
